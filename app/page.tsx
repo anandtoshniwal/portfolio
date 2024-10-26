@@ -1,39 +1,30 @@
-import Link from "next/link"
-
-import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
+import ProjectCard from "@/components/projectCard"
 
 export default function IndexPage() {
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
-          Beautifully designed components <br className="hidden sm:inline" />
-          built with Radix UI and Tailwind CSS.
-        </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground">
-          Accessible and customizable components that you can copy and paste
-          into your apps. Free. Open Source. And Next.js 13 Ready.
-        </p>
-      </div>
-      <div className="flex gap-4">
-        <Link
-          href={siteConfig.links.docs}
-          target="_blank"
-          rel="noreferrer"
-          className={buttonVariants()}
-        >
-          Documentation
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={buttonVariants({ variant: "outline" })}
-        >
-          GitHub
-        </Link>
-      </div>
-    </section>
+    <>
+      <section className="container max-w-6xl grid items-center gap-6 pb-8 pt-6 md:pt-20 md:pb-10">
+        <div className="flex max-w-[980px] flex-col items-start gap-2">
+          <h1 className="text-3xl font-semibold  md:text-4xl md:leading-snug md:max-w-[850px]">
+          UX Designer crafting innovative, user-centered solutions that drive meaningful impact
+          </h1>
+          <p className=" text-xl text-muted-foreground md:pt-5">
+          Hi there! I’m Mayuri, a passionate UX designer who love to solve complex business and user problems in a creative ways by focusing on end user and design products that are easy to use, profitable and appealing to their customers
+          </p>
+          <p className=" text-xl text-muted-foreground md:pt-5">
+            Beyond UX design, I embrace my creativity through painting and gazing at the stars.
+          </p>
+        </div>
+      </section>
+      <section className="container max-w-6xl grid items-center gap-6 pb-8 pt-6">
+        <h2 className="text-3xl font-semibold md:text-3xl md:leading-snug md:max-w-[850px]">Featured projects</h2>
+        <div className="grid gap-2 grid-cols-4">
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+        </div>
+      </section>
+    </>
   )
 }
