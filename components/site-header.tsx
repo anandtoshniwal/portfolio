@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
@@ -18,7 +18,7 @@ export function SiteHeader() {
 
   return (
     <header className="bg-background sticky top-0 z-40 w-full border-b">
-      <div className="container max-w-6xl flex h-16 items-center justify-between px-4">
+      <div className="container w-full md:max-w-6xl flex h-16 items-center justify-between px-4">
         {/* Avatar or MainNav */}
         <MainNav items={siteConfig.mainNav} />
 
@@ -46,14 +46,16 @@ export function SiteHeader() {
           </button>
 
           {/* Theme Toggle button - visible on all screens */}
+          <div className="hidden md:block">
           <ThemeToggle />
+          </div>
         </div>
       </div>
 
       {/* Dropdown menu for mobile */}
       {isMenuOpen && (
         <div className="md:hidden bg-background border-t px-4 py-2">
-          <nav className="flex flex-col space-y-4">
+          <nav className="flex flex-col items-center space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -64,6 +66,11 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Theme Toggle inside mobile menu */}
+            <div className="mt-4">
+              <ThemeToggle />
+            </div>
           </nav>
         </div>
       )}
