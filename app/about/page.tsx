@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Mail, Linkedin, MapPin, Phone } from "lucide-react";
 
-export const content = {
+const content = {
   introduction: {
     title: "I love to observe, learn and simplify things for myself and others.",
     paragraphs: [
