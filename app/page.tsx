@@ -39,17 +39,12 @@ export default function IndexPage() {
         <h2 className="text-3xl font-semibold md:text-3xl md:leading-snug md:max-w-[850px]">
           {content.featuredProjects.title}
         </h2>
-        
-        
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {content.projects.map((project) => (
-          <ProjectCard key={project.id} src={project.src} alt={project.alt} title={project.title} />
-        ))}
-      </div>
-  
-  
-       
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {content.projects.map((project) => (
+            <ProjectCard key={project.id} src={project.src} alt={project.alt} title={project.title} />
+          ))}
+        </div>
       </section>
     </>
   );
