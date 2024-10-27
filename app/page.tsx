@@ -12,10 +12,10 @@ const content = {
     title: "Featured projects"
   },
   projects: [
-    { id: 1, src: 'https://picsum.photos/seed/project1/600/400', alt: 'Project 1' },
-    { id: 2, src: 'https://picsum.photos/seed/project2/600/400', alt: 'Project 2' },
-    { id: 3, src: 'https://picsum.photos/seed/project3/600/400', alt: 'Project 3' },
-    { id: 4, src: 'https://picsum.photos/seed/project4/600/400', alt: 'Project 4' },
+    { id: 1, src: 'https://picsum.photos/seed/project1/600/400', alt: 'Project 1', title: 'Innovative UI Design' },
+    { id: 2, src: 'https://picsum.photos/seed/project2/600/400', alt: 'Project 2', title: 'Mobile App Redesign' },
+    { id: 3, src: 'https://picsum.photos/seed/project3/600/400', alt: 'Project 3', title: 'E-commerce Platform' },
+    { id: 4, src: 'https://picsum.photos/seed/project4/600/400', alt: 'Project 4', title: 'Data Visualization Tool' },
   ]
 };
 
@@ -44,7 +44,7 @@ export default function IndexPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {content.projects.map((project) => (
-          <ProjectCard key={project.id} src={project.src} alt={project.alt} />
+          <ProjectCard key={project.id} src={project.src} alt={project.alt} title={project.title} />
         ))}
       </div>
   
