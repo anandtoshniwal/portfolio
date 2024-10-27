@@ -15,19 +15,19 @@ const content = {
   },
   contactInfo: [
     {
-      icon: <Mail className="h-4 w-4 text-gray-600" />,
+      icon: <Mail className="size-4 text-gray-600" />,
       text: "email@example.com",
     },
     {
-      icon: <Linkedin className="h-4 w-4 text-gray-600" />,
+      icon: <Linkedin className="size-4 text-gray-600" />,
       text: "linkedin.com/in/username",
     },
     {
-      icon: <MapPin className="h-4 w-4 text-gray-600" />,
+      icon: <MapPin className="size-4 text-gray-600" />,
       text: "City, Country",
     },
     {
-      icon: <Phone className="h-4 w-4 text-gray-600" />,
+      icon: <Phone className="size-4 text-gray-600" />,
       text: "+123 456 7890",
     },
   ],
@@ -54,37 +54,37 @@ const content = {
 export default function Component() {
   return (
     <>
-      <section className="container max-w-6xl flex flex-col md:flex-row items-center gap-6 pb-8 pt-6 md:pt-20 md:pb-10">
+      <section className="container flex max-w-6xl flex-col items-center gap-6 pb-8 pt-6 md:flex-row md:pb-10 md:pt-20">
         {/* Text Section */}
-        <div className="flex flex-col gap-6 mb-6 md:w-1/2">
-          <h1 className="text-3xl pb-4 md:pb-0 font-semibold md:text-4xl md:leading-snug">
+        <div className="mb-6 flex flex-col gap-6 md:w-1/2">
+          <h1 className="pb-4 text-3xl font-semibold md:pb-0 md:text-4xl md:leading-snug">
             {content.introduction.title}
           </h1>
           {content.introduction.paragraphs.map((paragraph, index) => (
-            <p key={index} className="text-xl pb-4 md:pb-0 text-muted-foreground md:pt-5">
+            <p key={index} className="pb-4 text-xl text-muted-foreground md:pb-0 md:pt-5">
               {paragraph}
             </p>
           ))}
         </div>
 
         {/* Image Section */}
-        <div className="relative flex flex-col justify-center items-center w-full md:w-1/2">
-          <div className="w-full h-auto md:w-[300px] md:h-[300px] transform rotate-6">
+        <div className="relative flex w-full flex-col items-center justify-center md:w-1/2">
+          <div className="h-auto w-full rotate-6 md:size-[300px]">
             <Image
               src={content.introduction.imageSrc}
               alt={content.introduction.imageAlt}
               width={300}
               height={300}
-              className="object-cover rounded-lg transform -rotate-6"
+              className="-rotate-6 rounded-lg object-cover"
               layout="responsive"
             />
           </div>
 
           {/* Icons and Text Below Image */}
-          <div className="flex flex-col space-y-4 mt-4 w-full md:w-[55%] pt-3">
+          <div className="mt-4 flex w-full flex-col space-y-4 pt-3 md:w-[55%]">
             {content.contactInfo.map((info, index) => (
               <div key={index} className="flex items-center space-x-2">
-                <div className="bg-white rounded-full p-2">
+                <div className="rounded-full bg-white p-2">
                   {info.icon}
                 </div>
                 <span className="text-muted-foreground">{info.text}</span>
@@ -95,14 +95,14 @@ export default function Component() {
       </section>
 
       <section className="container max-w-6xl gap-6 pb-8 pt-6 md:pb-10">
-        <h2 className="text-3xl font-semibold md:text-3xl md:leading-snug pb-6">Recommendations</h2>
+        <h2 className="pb-6 text-3xl font-semibold md:text-3xl md:leading-snug">Recommendations</h2>
 
         <div className="space-y-6">
           {content.recommendations.map((rec, index) => (
-            <Card key={index} className="px-1 py-4 md:p-4 rounded-lg">
+            <Card key={index} className="rounded-lg px-1 py-4 md:p-4">
               <CardContent>
                 <p className="text-lg text-muted-foreground">
-                  "{rec.text}"
+                &quot;{rec.text}&ldquo;
                 </p>
                 <p className="mt-4 font-semibold text-muted-foreground">-- {rec.author}</p>
               </CardContent>

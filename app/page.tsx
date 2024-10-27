@@ -22,25 +22,25 @@ const content = {
 export default function IndexPage() {
   return (
     <>
-      <section className="container max-w-6xl grid items-center gap-6 pb-8 pt-6 md:pt-20 md:pb-10">
+      <section className="container grid max-w-6xl items-center gap-6 pb-8 pt-6 md:pb-10 md:pt-20">
         <div className="flex max-w-[980px] flex-col items-start gap-2">
-          <h1 className="text-3xl pb-4 md:pb-0 font-semibold md:text-4xl md:leading-snug md:max-w-[850px]">
+          <h1 className="pb-4 text-3xl font-semibold md:max-w-[850px] md:pb-0 md:text-4xl md:leading-snug">
             {content.hero.heading}
           </h1>
           {content.hero.paragraphs.map((paragraph, index) => (
-            <p key={index} className="text-xl pb-4 md:pb-0 text-muted-foreground md:pt-5">
+            <p key={index} className="pb-4 text-xl text-muted-foreground md:pb-0 md:pt-5">
               {paragraph}
             </p>
           ))}
         </div>
       </section>
       
-      <section className="container max-w-6xl grid items-center gap-6 pb-8 pt-6">
-        <h2 className="text-3xl font-semibold md:text-3xl md:leading-snug md:max-w-[850px]">
+      <section className="container grid max-w-6xl items-center gap-6 pb-8 pt-6">
+        <h2 className="text-3xl font-semibold md:max-w-[850px] md:text-3xl md:leading-snug">
           {content.featuredProjects.title}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {content.projects.map((project) => (
             <ProjectCard key={project.id} src={project.src} alt={project.alt} title={project.title} />
           ))}
