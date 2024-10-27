@@ -1,48 +1,55 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { Card } from '@/components/ui/card';
+import { useEffect, useRef } from 'react'
+import Image from 'next/image'
+import { motion, useAnimation } from 'framer-motion'
 
-export default function ProjectCard() {
-  const [isHovered, setIsHovered] = useState(false);
+const ProjectCard = ({ src, alt }: { src: string; alt: string }) => {
+  const controls = useAnimation()
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          controls.start({ opacity: 1, y: 0 })
+          observer.unobserve(entry.target)
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1,
+      }
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current)
+      }
+    }
+  }, [controls])
 
   return (
-    <div className="w-full max-w-xs mx-auto"> {/* Center and limit the width */}
-      <Card
-        className="relative overflow-hidden cursor-pointer rounded-2xl w-full" // Use w-full for responsiveness
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div className="relative h-64 w-full"> {/* Use relative height */}
-          <Image
-            src="https://picsum.photos/id/287/250/300"
-            alt="Mountains with trees in the foreground"
-            layout="fill"
-            objectFit="cover"
-            className="transition-transform duration-400 ease-in-out"
-            style={{ transform: isHovered ? 'scale(1.2)' : 'scale(1)' }}
-          />
-        </div>
-        <div
-          className="absolute inset-0 flex items-end p-3 bg-black/60 transition-[clip-path] duration-400 ease-in-out"
-          style={{
-            clipPath: isHovered ? 'inset(0 0 0 0)' : 'inset(0 100% 0 0)',
-          }}
-        >
-          <p
-            className="text-2xl font-bold font-sans"
-            style={{
-              color: 'transparent',
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              backgroundImage: 'linear-gradient(to right, white, white)',
-            }}
-          >
-            The Day
-          </p>
-        </div>
-      </Card>
-    </div>
-  );
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={controls}
+      transition={{ duration: 0.5 }}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={600}
+        height={400}
+        className="rounded-lg object-cover w-full h-64"
+      />
+    </motion.div>
+  )
 }
+
+export default ProjectCard;
