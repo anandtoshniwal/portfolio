@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Mail, Linkedin, MapPin, Phone } from "lucide-react";
 import content from '../data/about.json';
+import { Testimonial } from "@/components/testimonial";
 
 export default function Component() {
   // Helper function to map string icons to their respective Lucide icons
@@ -68,12 +69,14 @@ export default function Component() {
       <section className="container max-w-6xl gap-6 pb-8 pt-6 md:pb-10">
         <h2 className="pb-6 text-3xl font-semibold md:text-3xl md:leading-snug">Recommendations</h2>
 
+        <Testimonial testimonials={content.recommendations}/>
+        
         <div className="space-y-6">
           {content.recommendations.map((rec, index) => (
             <Card key={index} className="rounded-lg px-1 py-4 md:p-4">
               <CardContent>
                 <p className="text-lg text-muted-foreground">
-                  &quot;{rec.text}&ldquo;
+                  &quot;{rec.content}&ldquo;
                 </p>
                 <p className="mt-4 font-semibold text-muted-foreground">-- {rec.author}</p>
               </CardContent>
