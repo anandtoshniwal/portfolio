@@ -24,9 +24,9 @@ export default function Projects() {
             </h1>
 
            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {projects.map((project) => (
+            {/* {projects.map((project) => (
                 <ProjectCard key={project.id} src={project.src} alt={project.alt} title={project.title} />
-            ))}
+            ))} */}
             </div>
         </section>
     )

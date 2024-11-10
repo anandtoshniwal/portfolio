@@ -2,9 +2,19 @@
 
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, useAnimation } from 'framer-motion'
 
-const ProjectCard = ({ src, alt, title }: { src: string; alt: string; title: string }) => {
+interface Project {
+  teaser_image: string
+  image?: string
+  altText: string
+  title: string
+  href: string
+  description?: string
+  featured: boolean
+}
+const ProjectCard = ({ project }: { project: Project }) => {
   const controls = useAnimation()
   const ref = useRef(null)
 
@@ -35,26 +45,28 @@ const ProjectCard = ({ src, alt, title }: { src: string; alt: string; title: str
   }, [controls])
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={controls}
-      transition={{ duration: 0.5 }}
-      className="relative w-full h-64 group"
-    >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="rounded-lg object-cover"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-opacity duration-300 rounded-lg flex items-center justify-center">
-        <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          {title}
-        </h3>
-      </div>
-    </motion.div>
+    <Link href={project.href}>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={controls}
+        transition={{ duration: 0.5 }}
+        className="relative w-full h-64 group cursor-pointer"
+      >
+        <Image
+          src={project.teaser_image}
+          alt={project.altText}
+          fill
+          className="rounded-lg object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+          <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            {project.title}
+          </h3>
+        </div>
+      </motion.div>
+    </Link>
   )
 }
 
