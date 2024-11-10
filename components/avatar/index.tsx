@@ -7,7 +7,7 @@ import {
   export function AvatarComponents() {
     return (
       <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarImage src="/images/profile.png" alt="Mayuri Lahoti" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
     )
