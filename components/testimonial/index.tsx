@@ -16,10 +16,6 @@ interface Testimonials {
 }
 
 export const Testimonial = ({testimonials}: Testimonials) => {
-  if (!testimonials || testimonials.length === 0) {
-    return <div>No testimonials available.</div>
-  }
-
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const handlePrevious = () => {
