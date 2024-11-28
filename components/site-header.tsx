@@ -11,6 +11,7 @@ import { Icons } from "@/components/icons"; // Add an icon component for the men
 const navLinks = [
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
+  { label: "Resume", href: '/resume/mayuri_lahoti_resume.pdf'}
 ];
 
 export function SiteHeader() {
@@ -31,6 +32,7 @@ export function SiteHeader() {
                 key={link.href}
                 className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
                 href={link.href}
+                target={link.label === 'Resume' ? '_blank' : '_self'}
               >
                 {link.label}
               </Link>

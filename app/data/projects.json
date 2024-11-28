@@ -1,13 +1,13 @@
 
 {
-    "items": [
-        {
-            "title": "eDiscovery web app for Legal Professionals",
-            "teaser_image": "/images/projects/project_1_teaser.png",
-            "image": "/images/projects/project_1.png",
-            "altText": "Description of image 1",
-            "description": "This is the description for object 1.",
-            "featured": true 
-        }
-    ]
+  "items": [
+    {
+      "title": "eDiscovery web app for Legal Professionals",
+      "teaser_image": "/images/projects/project_1_teaser.png",
+      "teaser_desc": "Research, UX Design, Visual Design",
+      "image": "/images/projects/project_1.png",
+      "altText": "Description of image 1",
+      "featured": true 
+    }
+  ]
 }

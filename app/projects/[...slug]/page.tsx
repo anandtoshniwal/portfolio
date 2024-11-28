@@ -33,13 +33,13 @@ const ProjectPage = ({ params }: { params: { slug: string[] } }) => {
   return (
     <div className="project-page">
        <Image
-    src={project.image}
-    alt={project.altText}
-    layout="responsive"  // This automatically adjusts the aspect ratio
-    width={1000}         // Provide a large width value (used as the reference for aspect ratio)
-    height={500}         // Provide a corresponding height to maintain aspect ratio
-    className="w-full h-auto"  // Utility class for width 100% and height auto
-  />
+          src={project.image}
+          alt={project.altText}
+          layout="responsive"  // This automatically adjusts the aspect ratio
+          width={1000}         // Provide a large width value (used as the reference for aspect ratio)
+          height={500}         // Provide a corresponding height to maintain aspect ratio
+          className="w-full h-auto"  // Utility class for width 100% and height auto
+        />
     </div>
   )
 }
