@@ -27,13 +27,13 @@ export const Testimonial = ({testimonials}: Testimonials) => {
   }
 
   return (
-    <div className="w-full   mx-auto  py-12">
+    <div className="w-full mx-auto py-12">
       <Card className="border-none shadow-xl bg-gradient-to-br from-primary/5 to-primary/10">
         <CardContent className="p-8">
           <div className="relative">
             <div className="flex flex-col items-center text-center space-y-6">
               <blockquote className="text-lg font-medium text-muted-foreground max-w-2xl">
-                "{testimonials[currentIndex]?.content}"
+                &quot;{testimonials[currentIndex]?.content}&quot;
               </blockquote>
               <p className="text-primary font-semibold">{testimonials[currentIndex]?.author}</p>
             </div>
